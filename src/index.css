@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@300;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-cyan: #22d3ee;
+  --color-brand-magenta: #d946ef;
+  --color-surface-obsidian: #050505;
+}
+
+@layer base {
+  body {
+    @apply bg-surface-obsidian text-white font-sans antialiased overflow-hidden select-none;
+  }
+}
+
+/* Immersive Decorative Elements */
+.ambient-glow-cyan {
+  @apply fixed top-[-100px] left-[-100px] w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[150px] pointer-events-none z-0;
+}
+
+.ambient-glow-magenta {
+  @apply fixed bottom-[-100px] right-[-100px] w-[600px] h-[600px] bg-brand-magenta/10 rounded-full blur-[150px] pointer-events-none z-0;
+}
+
+/* Hardware UI Components */
+.hardware-panel {
+  @apply bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)];
+}
+
+.arena-window {
+  @apply bg-black border-2 border-brand-cyan/20 rounded-[2.5rem] shadow-[0_0_80px_rgba(34,211,238,0.15)] relative overflow-hidden;
+}
+
+.glass-nav {
+  @apply border-b border-white/10 bg-black/40 backdrop-blur-md;
+}
+
+/* Animations */
+@keyframes pulse-fast {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.95); }
+}
+
+.animate-pulse-fast {
+  animation: pulse-fast 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
